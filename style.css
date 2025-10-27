@@ -355,36 +355,67 @@ section p {
   transform: scale(1.1);
 }
 
-
 /* =========================
    RESPONSIVE (MOBILE)
    ========================= */
 @media (max-width: 768px) {
-  /* NAVIGATION */
-  nav { height: 70px; padding: 15px 20px; }
-  nav .logo { margin-left: 20px; } /* moved logo more to the left */
-  nav .logo img { height: 60px; }
+  /* NAVIGATION - FIXED & IMPROVED */
+  nav {
+    height: 70px;
+    padding: 15px 20px;
+    position: relative;
+    z-index: 999;
+  }
+  nav .logo {
+    margin-left: 20px; /* moved logo more to the left */
+  }
+  nav .logo img {
+    height: 60px;
+  }
   nav ul {
     position: fixed;
     top: 70px;
-    right: -250px;
+    right: 0; /* flush with right edge */
     flex-direction: column;
-    width: 220px;
+    width: 240px;
     height: calc(100% - 70px);
-    padding-top: 30px;
+    padding-top: 40px;
     background-color: #fff;
-    transition: right 0.4s cubic-bezier(0.65,0,0.35,1);
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+    overflow-y: auto;
+    z-index: 998;
   }
-  nav ul.active { right: 0; }
+  nav ul.active {
+    transform: translateX(0);
+  }
+  nav ul li {
+    width: 100%;
+    list-style: none;
+    border-bottom: 1px solid #eee;
+  }
+  nav ul li:last-child {
+    border-bottom: none;
+  }
   nav ul li a {
+    display: block;
+    padding: 15px 20px;
     text-align: right;
     direction: rtl;
-    opacity: 0;
-    transform: translateX(20px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    color: #222;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.3s;
   }
-  nav ul.active li a { opacity: 1; transform: translateX(0); }
-  .menu-toggle { display: block; }
+  nav ul li a:hover {
+    background-color: #f9f9f9;
+  }
+  .menu-toggle {
+    display: block;
+    z-index: 1000;
+    position: relative;
+  }
 
   /* HERO */
   .hero {
@@ -412,9 +443,16 @@ section p {
     z-index: 2;
     padding: 0 10px;
   }
-  .hero-content h1, 
-  section h2 { font-size: 1.8rem; line-height: 1.2; }
-  .hero-content p, section p { font-size: 1rem; line-height: 1.4; }
+  .hero-content h1,
+  section h2 {
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+  .hero-content p,
+  section p {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
 
   /* SECTIONS 1 & 2 */
   section:nth-of-type(1),
@@ -425,36 +463,149 @@ section p {
   }
 
   /* SERVICE CARDS */
-  .service-cards { flex-direction: column; gap: 20px; }
+  .service-cards {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* CONTACT SECTION (Refined for mobile - translucent glass style) */
+  #contact {
+    padding: 60px 40px;
+    text-align: right;
+    direction: rtl;
+  }
+  #contact h2 {
+    font-size: 1.6rem;
+    line-height: 1.2;
+    color: #bfa135;
+    margin-bottom: 25px;
+    text-align: right;
+  }
+  #contact p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 14px;
+    text-align: right;
+  }
+  .contact-container {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
+    padding: 35px 25px;
+    margin-top: 25px;
+    border: none;
+  }
+  .contact-container hr {
+    display: none;
+  }
+  .contact-container p {
+    margin: 10px 0;
+  }
 
   /* FOOTER */
   footer.site-footer {
-    font-size: 0.5rem; /* slightly smaller */
+    font-size: 0.2rem !important;
     padding: 6px 10px;
+    text-align: center;
   }
-}
 
-@media (max-width: 480px) {
-  nav { padding: 10px 15px; }
-  nav .logo { margin-left: 15px; } /* logo slightly more left on small screens */
-  section { padding: 50px 15px; }
-  .hero { margin-top: 60px; height: 75vh; min-height: 450px; }
-  .hero-content h1, section h2 { font-size: 1.6rem; }
-  .hero-content p, section p { font-size: 0.95rem; }
-  .btn, .btn-contact { padding: 12px 25px; font-size: 0.85rem; }
-  .service-cards .card { width: 90%; padding: 25px 15px; }
-  .contact-container { width: 90%; padding: 20px 15px; }
-
-  /* FOOTER */
-  footer.site-footer { font-size: 0.45rem; padding: 5px 8px; } /* smaller on tiny screens */
-}
-
-
-@media (max-width: 768px) {
+  /* WHATSAPP BUTTON */
   .whatsapp-btn {
     position: fixed;
     bottom: 20px;
     right: 20px;
     z-index: 1000;
+  }
+}
+
+/* =========================
+   VERY SMALL SCREENS
+   ========================= */
+@media (max-width: 480px) {
+  nav {
+    padding: 10px 15px;
+  }
+  nav .logo {
+    margin-left: 15px;
+  }
+  section {
+    padding: 50px 15px;
+  }
+  .hero {
+    margin-top: 60px;
+    height: 75vh;
+    min-height: 450px;
+  }
+  .hero-content h1,
+  section h2 {
+    font-size: 1.6rem;
+  }
+  .hero-content p,
+  section p {
+    font-size: 0.95rem;
+  }
+  .btn,
+  .btn-contact {
+    padding: 12px 25px;
+    font-size: 0.85rem;
+  }
+  .service-cards .card {
+    width: 90%;
+    padding: 25px 15px;
+  }
+  .contact-container {
+    width: 90%;
+    padding: 30px 18px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+  }
+  footer.site-footer {
+    font-size: 0.18rem !important;
+    padding: 5px 8px;
+  }
+}
+/* ==============
+   MOBILE MENU FIX
+   ============== */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: #333;
+    z-index: 2000;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    right: -250px;
+    width: 220px;
+    height: calc(100% - 70px);
+    background: #fff;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 30px 20px;
+    gap: 15px;
+    transition: right 0.3s ease;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links li a {
+    direction: rtl;
+    text-align: right;
+    width: 100%;
+  }
+
+  /* Optional animated icon effect */
+  .menu-toggle.open {
+    color: #bfa135;
   }
 }

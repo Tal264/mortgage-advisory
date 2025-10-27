@@ -11,11 +11,25 @@ document.querySelectorAll('nav ul li a').forEach(link => {
 
 
 // Mobile menu toggle
-const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('nav ul');
-menuToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
+
+  // Toggle menu when clicking the hamburger
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+    menuToggle.classList.toggle("open");
+  });
+
+  // Close menu when clicking any link
+  navLinks.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("active");
+      menuToggle.classList.remove("open");
+    });
+  });
 });
+
 
 
 
