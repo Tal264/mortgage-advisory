@@ -286,7 +286,7 @@ section p {
   max-width: 700px;
   margin: 0 auto;
   background-color: #ffffff;
-  padding: 40px 30px;
+  padding: 40px 20px;
   border-radius: 20px;
   box-shadow: 0 15px 35px rgba(0,0,0,0.08);
   text-align: right;
@@ -359,7 +359,6 @@ section p {
 .whatsapp-btn img:hover {
   transform: scale(1.1);
 }
-
 /* =========================
    RESPONSIVE (MOBILE)
    ========================= */
@@ -472,7 +471,64 @@ section p {
     line-height: 1.4;
   }
 
-  /* Additional mobile tweaks remain same as your previous code */
+  /* SERVICE CARDS */
+  .service-cards {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .service-cards .card {
+    width: 90%;
+    padding: 25px 15px;
+  }
+
+  /* CONTACT SECTION FULL WIDTH */
+  .contact-us {
+    padding: 60px 20px;
+    width: 100%;
+    max-width: 100%;
+    background-color: #f9f9f9;
+    text-align: right;
+    direction: rtl;
+  }
+
+  /* Remove the boxed container on mobile */
+  .contact-container {
+    display: block;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: none;
+  }
+
+  .contact-us h2 {
+    font-family: 'Assistant', sans-serif;
+    font-size: 1.6rem;
+    color: #bfa135;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+
+  .contact-us p {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 14px;
+  }
+
+  .btn-contact {
+    font-size: 0.85rem;
+    padding: 12px 25px;
+  }
+
+  /* FOOTER */
+  .site-footer {
+    font-size: 0.55rem !important; /* smaller for mobile */
+    padding: 5px 8px;
+    text-align: center;
+  }
 }
 
 /* =========================
@@ -511,16 +567,31 @@ section p {
   .btn,
   .btn-contact {
     padding: 12px 25px;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
   }
 
   .service-cards .card {
     width: 90%;
-    padding: 25px 15px;
+    padding: 20px 12px;
+  }
+
+  /* CONTACT SECTION FULL WIDTH */
+  .contact-us {
+    padding: 50px 15px;
+  }
+
+  .contact-container {
+    display: block;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: none;
   }
 
   .site-footer {
-    font-size: 0.6rem !important;
-    padding: 5px 8px;
+    font-size: 0.5rem !important;
+    padding: 5px 5px;
   }
 }
