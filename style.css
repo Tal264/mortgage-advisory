@@ -467,8 +467,8 @@ section p {
 
   .hero-content p,
   section p {
-    font-size: 1.4rem;
-    line-height: 1.4;
+    font-size: 1.6rem;
+    line-height: 1.5;
   }
 
   /* SERVICE CARDS */
@@ -525,7 +525,7 @@ section p {
 
   /* FOOTER */
   .site-footer {
-    font-size: 0.55rem !important; /* smaller for mobile */
+    font-size: 0.3rem !important; /* smaller for mobile */
     padding: 5px 8px;
     text-align: center;
   }
@@ -591,7 +591,7 @@ section p {
   }
 
   .site-footer {
-    font-size: 0.5rem !important;
+    font-size: 0.3rem !important;
     padding: 5px 5px;
   }
 }
